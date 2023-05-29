@@ -28,11 +28,27 @@ fun main(){
     val positivesList = numList.filter { x -> x>0 }
     println("This is positive list $positivesList and this is negative list $negativesList")
 
-    val minute = 39;
+    val minuteList = mutableListOf(39, 23,2, 212)
     val minuteToSeconds = timeToSeconds("minute")
-    val result = minuteToSeconds(39) // varaible lambda
-    println("$minute in seconds is $result seconds")
+    var result = 0
+    for (minute in minuteList){
+        result += minuteToSeconds(minute)
+    }
+    println("${minuteList.sum()} minutes in seconds is $result seconds")
 
+    val actions = listOf("title", "year", "author")
+    val prefix = "https://example.com/book-info"
+    val id = 5
+    val urls = actions.map { _ -> "$prefix/$id/${actions[0]}" }
+    println(urls)
+
+    fun repeatN(n: Int, action: () -> Unit) {
+       for (i in 1..n){
+           action()
+       }
+    }
+
+    repeatN(6) { println("Hello") }
 }
 
 //Basic function
@@ -60,4 +76,5 @@ fun timeToSeconds(time: String): (Int) -> Int = when(time){
     "second" -> {value -> value}
     else -> {value -> value}
 }
+
 
