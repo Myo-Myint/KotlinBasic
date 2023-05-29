@@ -20,6 +20,18 @@ fun main(){
     val division = { a: Int, b :Int -> a/b  }
     subtraction(division(8,4),1)
 
+    // pass lambda expresssion as a parameter to another func
+    //A great example of when it is useful to pass a lambda expression to a function, is using the .filter() function on collections:
+    // since filter() function accepts lambda expression as a predicate
+    val numList = listOf(-1,-4,9,2)
+    val negativesList = numList.filter { x -> x<0 }
+    val positivesList = numList.filter { x -> x>0 }
+    println("This is positive list $positivesList and this is negative list $negativesList")
+
+    val minute = 39;
+    val minuteToSeconds = timeToSeconds("minute")
+    val result = minuteToSeconds(39) // varaible lambda
+    println("$minute in seconds is $result seconds")
 
 }
 
@@ -38,4 +50,14 @@ fun subtraction(a:Int, b:Int){
 }
 //Single functions can be written with = sign
 fun multiplication(a:Double, b:Double) : Double = a*b
+
+//return lambda expression from a functio
+// function that can return lamdaexpression are written as
+// fun func_name(function parameter) : (lambda parameter type) -> lambda return type = {lambda expression}
+fun timeToSeconds(time: String): (Int) -> Int = when(time){
+    "hour" -> {value -> value*60*60}
+    "minute"-> {value -> value*60}
+    "second" -> {value -> value}
+    else -> {value -> value}
+}
 
