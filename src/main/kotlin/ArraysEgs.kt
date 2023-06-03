@@ -1,13 +1,11 @@
-import java.util.*
-
 fun main(){
     //two ways to create an array
-    //1. using arrof(elments)
+    //1. using arrof(elements)
 
-    val firsArr = arrayOf("Myo","Mahomoud","Houtz", "Nijjad")
+    val firsArr = arrayOf("Myo","Mahmoud","Houtz", "Nijjad")
     println(firsArr.contentToString())
 
-    //2. using arrays constructor => first parameter : arrayLenght and snd parameter :
+    //2. using arrays constructor => first parameter : arrayLength and snd parameter :
     val sndArr = Array(5){ index -> index * 1}
     println(sndArr.contentToString())
 
@@ -15,7 +13,7 @@ fun main(){
     val sizes = arrayOf("byte", "kilobyte", "megabyte", "gigabyte",
         "terabyte", "petabyte", "exabyte")
     for ((i, value) in array.withIndex()) {
-        println("1 ${sizes[i]} = ${value.toLong()} bytes")
+        println("1 ${sizes[i]} = $value bytes")
     }
 
     val num = Array(5){index -> index + 11}
